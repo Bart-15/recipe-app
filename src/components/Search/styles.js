@@ -7,6 +7,12 @@ const style = makeStyles((theme) => ({
           width: '25ch',
         },
       },
+
+    container: {
+      display: 'flex',
+      width: '100%',
+      justifyContent: 'center'
+    }
 }))
 
 export default style;

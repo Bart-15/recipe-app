@@ -6,7 +6,7 @@ const Search = ({ query, setQuery, onSubmit}) => {
     const classes = useStyles();
     return (
         <div>
-            <Container>
+            <Container className={classes.container}>
            <form onSubmit={onSubmit} className={classes.root} noValidate autoComplete="off">
            <Input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search here" inputProps={{ 'aria-label': 'description' }} />
            </form>
