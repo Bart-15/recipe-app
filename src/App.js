@@ -3,8 +3,22 @@ import axios from 'axios';
 import Search from './components/Search/Search';
 import Recipe from './components/Recipe/Recipe'
 import { v4 as uuidv4 } from "uuid";
-import {Container, Grid, Typography} from '@material-ui/core'
+import {Container, Grid, Typography, CssBaseline} from '@material-ui/core'
+import { MuiThemeProvider, createTheme } from '@material-ui/core/styles';
+
 import Swal from 'sweetalert2'
+
+const themeDark = createTheme({
+    palette: {
+      background: {
+        default: "#291749"
+      },
+      text: {
+        primary: "#C7D3D4FF",
+        letterSpacing: '2px'
+      }
+    }
+  });
 const App = () => {
     const APP_ID = "29159c55"
     const APP_KEY = "742211e69dcca50c95cd645828dcd7ab"
@@ -16,7 +30,7 @@ const App = () => {
 
     const getData = async () => {
 
-        if(query !== "") {
+        if(query) {
             const result = await axios.get(url);
             if(!result.data.more) {
                return Swal.fire({
@@ -29,7 +43,9 @@ const App = () => {
             setRecipies(result.data.hits)
             setQuery("")
         } else {
-            alert('fill up the form')
+            Swal.fire({
+                text:'Please fill up the form'
+            })
         }
     }
     
@@ -46,16 +62,18 @@ const App = () => {
 
         return (
             <>
+            <MuiThemeProvider theme={themeDark}>
+            <CssBaseline />
             <Container>
-             <Search  query={query} setQuery={setQuery} onSubmit={onSubmit} />  
-                 {recipes.length ? <Typography variant="h4">Result...</Typography> : <Typography variant="h4">Try search something</Typography>}
+             <Search style={{color:'#fff'}} query={query} setQuery={setQuery} onSubmit={onSubmit} />  
+                 {recipes.length ? <Typography style={{color:'#fff'}} variant="h4">Result...</Typography> : <Typography style={{color:'#fff'}} variant="h4">Try search something</Typography>}
             </Container>
-             <Container style={{display: 'flex', margin:'0, auto'}}>
+             <Container style={{display: 'flex', margin:'0, auto', paddingBottom: 0,}}>
                 <Grid container spacing={4}>
                         {
-                            recipes !== [] && recipes.map((recipe) => {
+                            recipes && recipes.map((recipe) => {
                                 return (
-                                    <Grid item xs={12} sm={6} lg={3}>
+                                    <Grid item xs={12} sm={6} lg={4}>
                                         
                                         <Recipe recipe={recipe} key={uuidv4()} />
                                     </Grid>
@@ -64,6 +82,7 @@ const App = () => {
                         }
                 </Grid>
              </Container>
+            </MuiThemeProvider>
         </>
     )
 }
