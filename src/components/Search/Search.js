@@ -8,7 +8,7 @@ const Search = ({ query, setQuery, onSubmit}) => {
         <div>
             <Container className={classes.container}>
            <form onSubmit={onSubmit} className={classes.root} noValidate autoComplete="off">
-           <Input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search here" inputProps={{ 'aria-label': 'description' }} />
+           <Input variant="outlined" value={query} className={classes.textField} onChange={(e) => setQuery(e.target.value)} placeholder="Search here" inputProps={{ 'aria-label': 'description' }} />
            </form>
             </Container>
         </div>

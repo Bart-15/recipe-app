@@ -1,7 +1,9 @@
-import React, {useState, useCallback} from 'react'
+import React, {useState, useEffect} from 'react'
 import {Card, CardActionArea, CardActions, CardContent, CardMedia, Button, Typography} from '@material-ui/core'
 import useStyles from './styles'
 import Ingridients from './Ingridients'
+
+
 
 const Recipie = ({recipe}) => {
     const [open, setOpen] = useState(false)
@@ -9,26 +11,28 @@ const Recipie = ({recipe}) => {
     const classes = useStyles()
 
     
+
+
+    //open and close modal dialog
     const handleClick = (e) => {
         e.preventDefault()
         setOpen(!open);
     }
-   console.log(recipe)
 
     return (
     <>
-       <Card className={classes.root}>
+       <Card className={classes.root} data-aos="fade-in">
            <CardActionArea>
                <CardMedia
                className={classes.media}
                image={image} />
            </CardActionArea>
            <CardContent>
-               <Typography style={{color: '#3C1053FF',}} gutterBottom variant="h6">{label}</Typography>
+               <Typography style={{color: '#fff',}} gutterBottom variant="h6">{label}</Typography>
            </CardContent>
            <CardActions>
             <Button className={classes.btn} variant="contained" style={{color:'#fff'}} href={url} target="_blank" rel="noopener noreferrer" >
-                Learn More
+                Source
             </Button>
             <Button className={classes.btn} variant="contained" style={{color:'#fff'}} onClick={handleClick} >
                 Ingridients

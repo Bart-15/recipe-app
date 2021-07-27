@@ -4,7 +4,6 @@ const style = makeStyles((theme) => ({
     root: {
         '& .MuiTextField-root': {
           margin: theme.spacing(1),
-          width: '25ch',
         },
       },
 
@@ -12,6 +11,14 @@ const style = makeStyles((theme) => ({
       display: 'flex',
       width: '100%',
       justifyContent: 'center'
+    },
+
+    textField : {
+      width:'30ch',
+      padding:'5px',
+      margin:'10px 0 10px 0',
+      borderRadius:'0 10 0 10px',
+      color:'#C5FAD5 !important',
     }
 }))
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Typography, Dialog, ListItem, ListItemText, List, Divider, AppBar, Toolbar, IconButton, Slide} from '@material-ui/core'
+import { Button, Typography, Dialog, ListItem, ListItemText, List, Divider, AppBar, Toolbar, Slide} from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 import { v4 as uuidv4 } from "uuid";
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -9,7 +9,8 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   const useStyles = makeStyles((theme) => ({
     appBar: {
       position: 'relative',
-      backgroundColor:'#3A3B3C'
+      backgroundColor:'#444444',
+      letterSpacing:'3px',
     },
     title: {
       marginLeft: theme.spacing(2),

@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core";
 const styles = makeStyles((theme) => ({
     root: {
         maxWidth: 450,
-        backgroundColor:'#d93bb1',
+        backgroundColor:'#656565',
         margin:'2%',
         boxShadow:'-3px 5px 32px 0px rgba(0,0,0,50)'
       },
